@@ -10,8 +10,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- fonts -->
+    @stack("fonts")
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @stack("styles")
 
     <!-- Scripts -->
     <script>
@@ -19,6 +23,7 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    @stack("scripts")
 </head>
 <body>
     <div id="app">
@@ -59,6 +64,11 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('home') }} ">
+                                            Dashboard
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
