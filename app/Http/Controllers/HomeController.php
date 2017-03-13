@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $news = \App\News::all()->sortByDesc("created"); // TODO this can overflow
+
+        return view('home', compact("news"));
     }
 }
