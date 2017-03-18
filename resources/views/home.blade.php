@@ -21,8 +21,8 @@
                     </div>
                     <div class="panel-footer">
                         Written on {{ $newsItem->formatDate($newsItem->created_at) }}
-                    @if ($newsItem->created !== $newsItem->lastModified)
-                        - Modified on {{ $newsItem->formatDate($newsItem->modified_at) }}
+                    @if ($newsItem->created_at != $newsItem->updated_at)
+                        - Modified on {{ $newsItem->formatDate($newsItem->updated_at) }}
                     @endif
                     </div>
                     @endforeach

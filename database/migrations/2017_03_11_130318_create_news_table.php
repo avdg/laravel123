@@ -17,7 +17,7 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->mediumText('news');
             $table->dateTime('created_at');
-            $table->dateTime('modified_at');
+            $table->dateTime('updated_at');
             $table->boolean('public');
         });
     }

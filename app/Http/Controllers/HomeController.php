@@ -23,7 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = \App\News::all()->sortByDesc("created"); // TODO this can overflow
+        $news = \App\News::where("public", 1)
+            ->orderBy("created_at", "desc")
+            ->take(10)
+            ->get();
 
         return view('home', compact("news"));
     }
