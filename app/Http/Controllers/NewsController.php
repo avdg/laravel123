@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Show a news article
      *
      * @param $id Id of news article to show
@@ -148,6 +158,13 @@ class NewsController extends Controller
         return redirect('/news');
     }
 
+    /**
+     * Request to delete an article
+     *
+     * @param String $id Id of the article to be delete
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function requestDelete($id) {
         $id = $this->checkValidArticleId($id);
 
@@ -166,6 +183,14 @@ class NewsController extends Controller
         ]);
     }
 
+    /**
+     * Actually remove a news article
+     *
+     * @param Request $request Laravel request object
+     * @param String $id Id of the article to be deleted
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function confirmDelete(Request $request, $id) {
         $id = $this->checkValidArticleId($id);
 
@@ -178,6 +203,11 @@ class NewsController extends Controller
         return redirect('/news');
     }
 
+    /**
+     * Get an overview of all articles
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function overviewArticles() {
         $news = \App\News::all();
 
@@ -221,6 +251,11 @@ class NewsController extends Controller
         return $id;
     }
 
+    /**
+     * Page is unavailable
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function fail() {
         return response("Page unavailable", 404);
     }
