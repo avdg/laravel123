@@ -211,7 +211,7 @@ class NewsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function overviewArticles() {
-        $news = \App\News::all();
+        $news = \App\News::all()->sortByDesc("id");
 
         return view("news.overview", [
             "news" => $news
