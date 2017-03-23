@@ -13,7 +13,7 @@
             </div>
 
             @if (sizeof($news) > 0)
-                <h3>Updates</h3>
+                <h3>Updates</h3> <a href="/news">[manage news]</a>
                 <div class="panel panel-default">
                     @foreach($news as $newsItem)
                     <div class="panel-body">
@@ -28,6 +28,8 @@
                     @endforeach
 
                 </div>
+            @else
+                <a href="/news">[manage news]</a>
             @endif
         </div>
     </div>
