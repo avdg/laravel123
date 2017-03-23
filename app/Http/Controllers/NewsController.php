@@ -55,9 +55,10 @@ class NewsController extends Controller
         }
 
         return view('news.edit', [
-            "news"       => $request->old("news"),
-            "postPublic" => $postPublic,
-            "title"      => "Create a new news article"
+            "news"          => $request->old("news"),
+            "postPublic"    => $postPublic,
+            "title"         => "Create a new news article",
+            "submitContent" => "Add new article"
         ]);
     }
 
@@ -117,9 +118,10 @@ class NewsController extends Controller
 
 
         return view('news.edit', [
-            "news"       => $article->news,
-            "postPublic" => $article->public,
-            "title"      => "Edit news article"
+            "news"          => $article->news,
+            "postPublic"    => $article->public,
+            "title"         => "Edit news article",
+            "submitContent" => "Update article"
         ]);
     }
 

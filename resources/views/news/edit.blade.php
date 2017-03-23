@@ -23,7 +23,7 @@
                 @endif
                 <textarea id="news" name="news">{{ $news }}</textarea>
 
-                <input type="submit" name="submit" value="Add new article">
+                <input type="submit" name="submit" value="{{ $submitContent }}">
                 <label><input type="checkbox" name="public"<?php if ($postPublic) echo " checked" ?>> Make post public</label>
             </form>
         </div>
