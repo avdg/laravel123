@@ -23,19 +23,6 @@ class ExampleTest extends TestCase
     }
 
     /**
-     * A guest visiting the home screen should be redirected to the login screen
-     *
-     * @return void
-     */
-    public function testHomePage()
-    {
-        $response = $this->get('/home');
-
-        $response->assertStatus(302);
-        $response->assertRedirect('/login');
-    }
-
-    /**
      * Attempt to see the login screen
      *
      * @return void
