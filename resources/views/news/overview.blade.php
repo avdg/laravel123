@@ -1,4 +1,3 @@
-
 @extends("layouts.app")
 
 @section("content")
@@ -8,8 +7,8 @@
             <h3>Overview</h3>
             <a href="/news/create">Create a new article</a>
             @if (sizeof($news) > 0)
+            @foreach($news as $newsItem)
                 <div class="panel panel-default">
-                    @foreach($news as $newsItem)
                     <div class="panel-body">
                         {{ substr($newsItem->news, 0, 200) }}
                     </div>
@@ -22,9 +21,8 @@
                         <a href="/news/edit/{{$newsItem->id}}">edit</a> -
                         <a href="/news/delete/{{$newsItem->id}}">remove</a>
                     </div>
-                    @endforeach
-
                 </div>
+            @endforeach
             @endif
         </div>
     </div>
