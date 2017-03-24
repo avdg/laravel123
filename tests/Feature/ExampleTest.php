@@ -21,16 +21,4 @@ class ExampleTest extends TestCase
         $response->assertSee("Laravel");
         $response->assertStatus(200);
     }
-
-    /**
-     * Attempt to see the login screen
-     *
-     * @return void
-     */
-     public function testLoginPage()
-     {
-         $response = $this->get('/login');
-         $response->assertSee('E-Mail Address');
-         $response->assertSee('Password');
-     }
 }
